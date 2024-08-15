@@ -1,0 +1,95 @@
+---
+title: "eds221 day 3 activity"
+author: "Stephen Carroll"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+# Task 1
+```{r}
+pm2_5 <- 155
+
+if (pm2_5 < 100) {
+  print("Low to moderate risk")
+} else if (pm2_5 >= 100 & pm2_5 < 150) {
+  print("Unhealthy for sensitive groups")
+} else if (pm2_5 >= 150) 
+  print("Health risk present")
+```
+
+# Task 2
+```{r}
+library(stringr)
+species <- c("blue whale") 
+
+
+if (str_detect(species, pattern = "whale")) {
+print("You found a whale!")
+}
+```
+
+# Task 3
+```{r}
+base_burrito <- 6.50
+main_ingredient <- "chicken"
+
+if (main_ingredient == "veggie"){
+  print(base_burrito)
+} else if (main_ingredient == "chicken"){
+  print(base_burrito + 3.00)
+} else if (main_ingredient == "steak")
+  print(base_burrito + 3.25) 
+```
+
+```{r}
+base_burrito <- 6.50
+main_ingredient <- "steak"
+
+switch(main_ingredient,
+       "veggie" = print(base_burrito),
+       "chicken" = print(base_burrito + 3.00),
+       "steak" = print(base_burrito + 3.25))
+```
+
+# Task 4
+```{r}
+
+fish <- c(8, 10, 12, 23) 
+fish_sp <- c("goldfish", "tetras", "guppies", "mollies")
+sum_fish <- sum(fish)
+
+for (i in seq_along(fish)) {
+if (fish_sp[i] == "goldfish"){
+  fish_pro <- fish[i] / sum_fish
+} else if(fish_sp[i] == "tetras"){
+  fish_pro <- fish[i] / sum_fish
+} else if (fish_sp[i] == "guppies"){
+  fish_pro <- fish[i] / sum_fish
+} else if (fish_sp[i] == "mollies"){
+  fish_pro <- fish[i] / sum_fish
+}
+print(fish_pro)
+}
+```
+
+```{r}
+for(i in seq_along(fish)) {
+  pro = fish[i] / sum_fish
+  print(paste(fish_sp[i],":", pro))
+}
+```
+
+
+# Task 5
+```{r}
+month.name
+
+for(i in seq_along(month.name)) {
+  print(paste(month.name[i], "is month", i))
+}
+```
+
+
+
+

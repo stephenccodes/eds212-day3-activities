@@ -1,0 +1,47 @@
+---
+title: "toolik_chem activity"
+author: "Stephen Carroll"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+# Practice with real data 
+
+```{r}
+library(tidyverse)
+library(here)
+library(janitor)
+```
+
+
+```{r}
+toolik_biochem <- read.csv(here::here( "data", "2011_Kling_Akchem.csv"), na = ".") %>% 
+  janitor::clean_names(case = "snake") 
+```
+
+```{r}
+inlet_biochem <- toolik_biochem %>% dplyr::filter(site == "Toolik Inlet") %>% dplyr::select(p_h, doc_u_m, tdn_u_m)
+```
+
+```{r}
+
+for(i in 1:ncol(inlet_biochem)){
+  print(
+    mean(inlet_biochem[[i]], na.rm = TRUE)
+    )
+}
+```
+
+```{r}
+apply(X = inlet_biochem, MARGIN = 2, FUN = mean, na.rm = TRUE)
+```
+
+```{r}
+purrr::map_df(.x = inlet_biochem, .f = mean, na.rm = TRUE)
+```
+
+
+
+
+
